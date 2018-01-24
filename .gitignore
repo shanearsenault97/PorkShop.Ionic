@@ -38,3 +38,5 @@ src/theme/variables.scss
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+PorkShop/resources/ios
+PorkShop/resources/android
