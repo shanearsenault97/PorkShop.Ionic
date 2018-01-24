@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Add a Reservation</title>
-</head>
-<body>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Make a Reservation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
-</body>
-</html>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+
+          <ion-item>
+            <ion-select [(ngModel)]="m_Reservation.TableID" placeholder="Table">
+              <ion-option>
+                1
+              </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="MMM D YYYY" [(ngModel)]="m_Reservation.ReservationDate" placeholder="Date"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" minuteValues="0,15,30,45" [(ngModel)]="m_Reservation.ReservationTime" placeholder="Time"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Contact Name" [(ngModel)]="m_Reservation.ReservationName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Phone Number" [(ngModel)]="m_Reservation.ReservationPhoneNumber"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <button ion-button>Add Reservation</button>
+          </ion-item>
+          
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
