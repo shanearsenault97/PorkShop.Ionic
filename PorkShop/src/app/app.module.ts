@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {ReservationAdd} from "../pages/reservation/reservation-add/reservation-add";
+import {NavigationService} from "../services/NavigationService";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ReservationAdd
   ],
   imports: [
     BrowserModule,
@@ -19,9 +22,11 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ReservationAdd
   ],
   providers: [
+    NavigationService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

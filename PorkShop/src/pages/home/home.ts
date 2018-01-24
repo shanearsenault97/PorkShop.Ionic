@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavigationService} from "../../services/NavigationService";
+import {ReservationAdd} from "../reservation/reservation-add/reservation-add";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,12 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private navigationService: NavigationService)
+  {}
 
+  public GoToReservation()
+  {
+    return this.navigationService.PushView(ReservationAdd)
   }
 
 }
