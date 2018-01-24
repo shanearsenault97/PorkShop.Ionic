@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IonicPage} from "ionic-angular";
 import { IReservation } from '../../../models/interfaces/IReservation';
+import { ReservationService } from '../../../services/ReservationService';
 
 @IonicPage()
 @Component({
@@ -9,7 +10,7 @@ import { IReservation } from '../../../models/interfaces/IReservation';
 })
 export class ReservationAdd implements OnInit {
 
-  constructor() {
+  constructor(private reservationService: ReservationService) {
 
   }
 
@@ -24,6 +25,19 @@ export class ReservationAdd implements OnInit {
       ReservationPhoneNumber: "",
       ReservationTime: ""
     };
+  }
+
+  public async AddReservation()
+  {
+    try
+    {
+      let new_reservation = await this.reservationService.AddReservation(this.m_Reservation);
+      return Promise.resolve(new_reservation);
+    }
+    catch(addReservationError)
+    {
+      return Promise.reject(addReservationError);
+    }
   }
 
 }
