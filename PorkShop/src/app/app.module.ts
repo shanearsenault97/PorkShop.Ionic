@@ -5,15 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import {ReservationAdd} from "../pages/reservation/reservation-add/reservation-add";
 import {NavigationService} from "../services/NavigationService";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ReservationAdd
   ],
   imports: [
     BrowserModule,
@@ -22,8 +18,6 @@ import {NavigationService} from "../services/NavigationService";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ReservationAdd
   ],
   providers: [
     NavigationService,

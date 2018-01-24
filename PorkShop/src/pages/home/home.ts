@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import {NavigationService} from "../../services/NavigationService";
-import {ReservationAdd} from "../reservation/reservation-add/reservation-add";
+import {IonicPage} from "ionic-angular";
+import {PageNames} from "../../models/enums/PageNames";
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(private navigationService: NavigationService)
+  constructor()
   {}
 
-  public GoToReservation()
-  {
-    return this.navigationService.PushView(ReservationAdd)
-  }
+  public ReservationAdd = PageNames.ReservationAdd;
 
 }
