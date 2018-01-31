@@ -12,7 +12,7 @@ export class NavigationService
 
   private m_NavController: NavController;
 
-  public PushView(pageNameP: Page | string, navParamsP?: {})
+  public PushView(pageNameP: Page | string, navParamsP?: {}): Promise<any>
   {
     return this.m_NavController.push(pageNameP, navParamsP);
   }

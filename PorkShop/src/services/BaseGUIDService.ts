@@ -3,6 +3,7 @@ import { IReservation } from "../models/interfaces/IReservation";
 import { IItem } from "../models/interfaces/IItem";
 import { UUIDService } from "./UUIDService";
 import { CacheService } from "./CacheService";
+import {CacheKeys} from "../models/enums/CacheKeys";
 
 @Injectable()
 export class BaseGUIDService
@@ -11,7 +12,7 @@ export class BaseGUIDService
               private uuidService: UUIDService)
   {}
 
-  public async GetGUIDItems(cacheKeyP: string): Promise<any>
+  public async GetGUIDItems(cacheKeyP: CacheKeys): Promise<any>
   {
     try
     {
@@ -20,7 +21,7 @@ export class BaseGUIDService
         {
             cache_result = [];
         }
-        return Promise.resolve(cache_result); 
+        return Promise.resolve(cache_result);
     }
     catch(getCacheItemsError)
     {
@@ -28,13 +29,13 @@ export class BaseGUIDService
     }
   }
 
-  public async SaveGUIDItem(newItemP: IItem, cacheKeyP: string): Promise<any>
+  public async SaveGUIDItem(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
     newItemP.ID = this.uuidService.Generate();
     try
     {
         let cache_result = await this.SaveGUIDItemToCache(newItemP, cacheKeyP);
-        return Promise.resolve(cache_result);        
+        return Promise.resolve(cache_result);
     }
     catch(saveGuidItemError)
     {
@@ -42,12 +43,12 @@ export class BaseGUIDService
     }
   }
 
-  private async GetGUIDItemsFromCache(cacheKeyP: string)
+  private async GetGUIDItemsFromCache(cacheKeyP: CacheKeys): Promise<any>
   {
     try
     {
         let cache_result = await this.cacheService.Get(cacheKeyP);
-        return Promise.resolve(cache_result);
+        return Promise.resolve(cache_result.Data);
     }
     catch(getItemsFromCacheError)
     {
@@ -55,16 +56,16 @@ export class BaseGUIDService
     }
   }
 
-  private async SaveGUIDItemToCache(newItemP: IItem, cacheKeyP: string)
+  private async SaveGUIDItemToCache(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
-    try 
+    try
     {
         let item_list = await this.GetGUIDItems(cacheKeyP);
         item_list.push(newItemP);
         await this.cacheService.Save(cacheKeyP, item_list);
         return Promise.resolve(newItemP);
-    } 
-    catch(getItemsErrorResult) 
+    }
+    catch(getItemsErrorResult)
     {
         return Promise.reject(getItemsErrorResult);
     }

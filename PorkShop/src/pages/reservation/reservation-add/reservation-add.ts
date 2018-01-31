@@ -27,7 +27,7 @@ export class ReservationAdd implements OnInit {
     };
   }
 
-  public async AddReservation()
+  public async AddReservation(): Promise<any>
   {
     try
     {
