@@ -7,7 +7,7 @@ import {CacheKeys} from "../models/enums/CacheKeys";
 @Injectable()
 export class BaseGUIDService
 {
-  constructor(private cacheService: StorageService,
+  constructor(private storageService: StorageService,
               private uuidService: UUIDService)
   {}
 
@@ -46,7 +46,7 @@ export class BaseGUIDService
   {
     try
     {
-        let cache_result = await this.cacheService.Get(cacheKeyP);
+        let cache_result = await this.storageService.Get(cacheKeyP);
         return Promise.resolve(cache_result.Data);
     }
     catch(getItemsFromCacheError)
@@ -61,7 +61,7 @@ export class BaseGUIDService
     {
         let item_list = await this.GetGUIDItems(cacheKeyP);
         item_list.push(newItemP);
-        await this.cacheService.Save(cacheKeyP, item_list);
+        await this.storageService.Save(cacheKeyP, item_list);
         return Promise.resolve(newItemP);
     }
     catch(getItemsErrorResult)
