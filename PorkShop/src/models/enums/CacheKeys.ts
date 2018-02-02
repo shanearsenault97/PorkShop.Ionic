@@ -1,4 +1,5 @@
 export enum CacheKeys
 {
-  Reservations = 'Reservations'
+  Reservations = 'Reservations',
+  TestKey = 'TestKey'
 }

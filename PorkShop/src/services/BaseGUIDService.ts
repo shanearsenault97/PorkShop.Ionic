@@ -1,14 +1,13 @@
 import {Injectable} from "@angular/core";
-import { IReservation } from "../models/interfaces/IReservation";
 import { IItem } from "../models/interfaces/IItem";
 import { UUIDService } from "./UUIDService";
-import { CacheService } from "./CacheService";
+import { StorageService } from "./StorageService";
 import {CacheKeys} from "../models/enums/CacheKeys";
 
 @Injectable()
 export class BaseGUIDService
 {
-  constructor(private cacheService: CacheService,
+  constructor(private cacheService: StorageService,
               private uuidService: UUIDService)
   {}
 

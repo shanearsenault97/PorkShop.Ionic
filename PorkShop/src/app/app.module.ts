@@ -9,7 +9,7 @@ import { MyApp } from './app.component';
 import {NavigationService} from "../services/NavigationService";
 import { ReservationService } from '../services/ReservationService';
 import { BaseGUIDService } from '../services/BaseGUIDService';
-import { CacheService } from '../services/CacheService';
+import { StorageService } from '../services/StorageService';
 import { UUIDService } from '../services/UUIDService';
 
 @NgModule({
@@ -30,7 +30,7 @@ import { UUIDService } from '../services/UUIDService';
   ],
   providers: [
     BaseGUIDService,
-    CacheService,
+    StorageService,
     NavigationService,
     ReservationService,
     SplashScreen,

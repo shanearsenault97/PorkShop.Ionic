@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {NavigationService} from "../../services/NavigationService";
 import {IonicPage} from "ionic-angular";
 import {PageNames} from "../../models/enums/PageNames";
 
