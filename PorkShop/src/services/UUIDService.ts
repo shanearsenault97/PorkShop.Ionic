@@ -6,6 +6,13 @@ export class UUIDService
 {
   public Generate(): string
   {
-    return UUID.UUID();
+    try
+    {
+      return UUID.UUID();
+    }
+    catch(uuidGenerateError)
+    {
+      throw uuidGenerateError;
+    }
   }
 }

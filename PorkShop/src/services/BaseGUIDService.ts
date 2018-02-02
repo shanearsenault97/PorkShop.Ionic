@@ -31,7 +31,7 @@ export class BaseGUIDService
 
   public async SaveGUIDItem(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
-    newItemP.ID = this.uuidService.Generate();
+    newItemP.ID = await this.uuidService.Generate();
     try
     {
         let cache_result = await this.SaveGUIDItemToCache(newItemP, cacheKeyP);
