@@ -1,9 +1,9 @@
-import {ReservationService} from "./ReservationService";
-import {FakeBaseGuidService} from "../fakes/fake-base-guid-service";
+import {ReservationService} from "../ReservationService";
+import {FakeBaseGuidService} from "../../fakes/fake-base-guid-service";
 import {TestBed} from "@angular/core/testing";
-import {BaseGUIDService} from "./BaseGUIDService";
-import {IReservation} from "../models/interfaces/IReservation";
-import {CacheKeys} from "../models/enums/CacheKeys";
+import {BaseGUIDService} from "../BaseGUIDService";
+import {IReservation} from "../../models/interfaces/IReservation";
+import {CacheKeys} from "../../models/enums/CacheKeys";
 
 describe("ReservationService", ()  => {
   let reservation_service: ReservationService;

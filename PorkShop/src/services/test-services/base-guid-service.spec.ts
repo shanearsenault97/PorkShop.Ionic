@@ -1,11 +1,11 @@
 import {TestBed} from "@angular/core/testing";
-import {BaseGUIDService} from "./BaseGUIDService";
-import {FakeStorageService} from "../fakes/fake-storage-service";
-import {FakeUUIDService} from "../fakes/fake-uuid-service";
-import {UUIDService} from "./UUIDService";
-import {StorageService} from "./StorageService";
-import {CacheKeys} from "../models/enums/CacheKeys";
-import {IItem} from "../models/interfaces/IItem";
+import {BaseGUIDService} from "../BaseGUIDService";
+import {FakeStorageService} from "../../fakes/fake-storage-service";
+import {FakeUUIDService} from "../../fakes/fake-uuid-service";
+import {UUIDService} from "../UUIDService";
+import {StorageService} from "../StorageService";
+import {CacheKeys} from "../../models/enums/CacheKeys";
+import {IItem} from "../../models/interfaces/IItem";
 
 describe("BaseGUIDService", () => {
   let base_guid_service: BaseGUIDService;
@@ -64,7 +64,7 @@ describe("BaseGUIDService", () => {
     it("should return the saved item after the item has been saved", () => {
       const expected_result: IItem = <IItem>{
         ID: "93d19958-5e29-4b4f-8f09-09614eebffc4",
-        DateAdded: jasmine.any(String).toString()
+        DateAdded: Number(jasmine.any(Number))
       };
       const new_item = expected_result;
       const storage_key = CacheKeys.TestKey;

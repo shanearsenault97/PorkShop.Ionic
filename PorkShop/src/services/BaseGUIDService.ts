@@ -19,7 +19,7 @@ export class BaseGUIDService
   public async SaveGUIDItem(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
     newItemP.ID = await this.uuidService.Generate();
-    newItemP.DateAdded = new Date().getTime().toString();
+    newItemP.DateAdded = new Date().getTime();
 
     return await this.SaveGUIDItemToCache(newItemP, cacheKeyP);
   }

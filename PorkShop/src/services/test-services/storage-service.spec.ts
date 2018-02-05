@@ -1,7 +1,7 @@
-import {StorageService} from "./StorageService";
+import {StorageService} from "../StorageService";
 import {TestBed} from "@angular/core/testing";
-import {FakeStorage} from "../fakes/fake-storage";
-import {CacheKeys} from "../models/enums/CacheKeys";
+import {FakeStorage} from "../../fakes/fake-storage";
+import {CacheKeys} from "../../models/enums/CacheKeys";
 import {Storage} from '@ionic/storage';
 
 describe('StorageService', () => {
