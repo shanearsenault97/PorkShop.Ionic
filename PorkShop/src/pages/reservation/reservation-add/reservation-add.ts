@@ -8,40 +8,28 @@ import { ReservationService } from '../../../services/ReservationService';
   selector: 'reservation-add',
   templateUrl: 'reservation-add.html'
 })
-export class ReservationAdd implements OnInit {
+export class ReservationAdd {
 
   constructor(private reservationService: ReservationService)
   {}
 
-  public m_Reservation: IReservation;
-
-  ngOnInit()
-  {
-    this.SetUpReservations();
-  }
+  public m_Reservation: IReservation = <IReservation>{
+    TableID: "",
+    ReservationDate: "",
+    ReservationName: "",
+    ReservationPhoneNumber: "",
+    ReservationTime: ""
+  };
 
   public async AddReservation(): Promise<any>
   {
     try
     {
-      let new_reservation = await this.reservationService.AddReservation(this.m_Reservation);
-      return Promise.resolve(new_reservation);
+      return await this.reservationService.AddReservation(this.m_Reservation);
     }
     catch(addReservationError)
     {
       return Promise.reject(addReservationError);
     }
   }
-
-  private SetUpReservations()
-  {
-    this.m_Reservation = <IReservation>{
-      TableID: "",
-      ReservationDate: "",
-      ReservationName: "",
-      ReservationPhoneNumber: "",
-      ReservationTime: ""
-    };
-  }
-
 }

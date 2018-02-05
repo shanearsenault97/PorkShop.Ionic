@@ -48,19 +48,6 @@ describe('StorageService', () => {
         expect(storageResult).toEqual(expected_result);
       }, () => {throw "";});
     });
-
-    it("should throw an exception indicating an error from getting from storage", () => {
-      const expected_result = null;
-      const storage_key = CacheKeys.TestKey;
-
-      fake_storage.SetStorageToUnavailable();
-      const result = storage_service.Get(storage_key);
-
-      result.then(() => {}, (storageError) => {
-        expect(storageError).toEqual(expected_result);
-      });
-    });
-
   });
 
   describe("Save", () => {
@@ -90,19 +77,5 @@ describe('StorageService', () => {
         expect(storage).toEqual(expected_result);
       }, () => {throw "";});
     });
-
-    it("should throw an exception when attempting to save the storage" , () => {
-      const expected_result = null;
-      const cache_data = {};
-      const storage_key = CacheKeys.TestKey;
-
-      fake_storage.SetStorageToUnavailable();
-      const result = storage_service.Save(storage_key, cache_data);
-
-      result.then(() => {}, (storageError) => {
-        expect(storageError).toEqual(expected_result);
-      });
-    });
-
   });
 });

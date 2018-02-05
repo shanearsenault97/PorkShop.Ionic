@@ -61,24 +61,5 @@ describe("ReservationService", ()  => {
         expect(newReservation).toEqual(expected_result);
       });
     });
-
-    it("should throw an exception as if an error occured on the reservation service", () => {
-      const expected_result = null;
-      const test_reservation = <IReservation>{
-        TableID: "",
-        ReservationDate: "",
-        ReservationTime: "",
-        ReservationName: "",
-        ReservationPhoneNumber: ""
-      };
-
-      fake_base_guid_service.SetServiceToUnavailable();
-      const result = reservation_service.AddReservation(test_reservation);
-
-      result.then(() => {}, (storageError) => {
-        expect(storageError).toEqual(expected_result);
-      });
-    })
-
   });
 });

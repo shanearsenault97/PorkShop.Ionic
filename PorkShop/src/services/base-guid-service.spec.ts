@@ -56,21 +56,7 @@ describe("BaseGUIDService", () => {
       result.then((guid_items) => {
         expect(guid_items).toEqual(expected_result);
       });
-
     });
-
-    it("should throw an exception after calling the getguiditems method", () => {
-      const expected_result = null;
-      const storage_key = CacheKeys.TestKey;
-
-      fake_storage_service.SetStorageServiceAsUnavailable();
-      const result = base_guid_service.GetGUIDItems(storage_key);
-
-      result.then(() => {}, (storageError) => {
-        expect(storageError).toEqual(expected_result);
-      });
-    });
-
   });
 
   describe("SaveGUIDItem", () => {
@@ -89,19 +75,5 @@ describe("BaseGUIDService", () => {
         expect(savedItem).toEqual(expected_result);
       });
     });
-
-    it("should throw an exception after calling the saveguiditem method", () => {
-      const expected_result = null;
-      const storage_key = CacheKeys.TestKey;
-
-      fake_storage_service.SetStorageServiceAsUnavailable();
-      const result = base_guid_service.GetGUIDItems(storage_key);
-
-      result.then(() => {}, (storageError) => {
-        expect(storageError).toEqual(expected_result);
-      });
-    });
-
   });
-
 });
