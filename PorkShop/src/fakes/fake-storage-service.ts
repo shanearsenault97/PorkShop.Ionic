@@ -11,18 +11,18 @@ export class FakeStorageService
   {
     if(this.m_StorageServiceUnavailable)
     {
-      return Promise.reject(null);
+      return;
     }
-    return Promise.resolve(this.m_Data);
+    return this.m_Data;
   }
 
   public async Save(keyP: CacheKeys, dataP: any): Promise<any>
   {
     if(this.m_StorageServiceUnavailable)
     {
-      return Promise.reject(null);
+      return;
     }
-    return Promise.resolve(dataP);
+    return dataP;
   }
   /*Helper methods not in original class*/
 

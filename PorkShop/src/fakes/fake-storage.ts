@@ -8,10 +8,6 @@ export class FakeStorage
 
   public ready(): Promise<void>
   {
-    if(this.m_StorageUnavailable)
-    {
-      return Promise.reject(null);
-    }
     return Promise.resolve();
   }
 
@@ -19,14 +15,14 @@ export class FakeStorage
   {
     if(this.m_StorageUnavailable)
     {
-      return Promise.reject(null);
+      return;
     }
     return Promise.resolve(this.m_StoredData);
   }
 
   public set(key: string, value: any): Promise<any>
   {
-    return Promise.resolve();
+    return;
   }
 
   /*Helper methods not declared within normal class*/

@@ -10,21 +10,14 @@ import { ReservationService } from '../../../services/ReservationService';
 })
 export class ReservationAdd implements OnInit {
 
-  constructor(private reservationService: ReservationService) {
-
-  }
+  constructor(private reservationService: ReservationService)
+  {}
 
   public m_Reservation: IReservation;
 
   ngOnInit()
   {
-    this.m_Reservation = <IReservation>{
-      TableID: "",
-      ReservationDate: "",
-      ReservationName: "",
-      ReservationPhoneNumber: "",
-      ReservationTime: ""
-    };
+    this.SetUpReservations();
   }
 
   public async AddReservation(): Promise<any>
@@ -38,6 +31,17 @@ export class ReservationAdd implements OnInit {
     {
       return Promise.reject(addReservationError);
     }
+  }
+
+  private SetUpReservations()
+  {
+    this.m_Reservation = <IReservation>{
+      TableID: "",
+      ReservationDate: "",
+      ReservationName: "",
+      ReservationPhoneNumber: "",
+      ReservationTime: ""
+    };
   }
 
 }

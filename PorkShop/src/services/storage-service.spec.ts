@@ -56,7 +56,7 @@ describe('StorageService', () => {
       fake_storage.SetStorageToUnavailable();
       const result = storage_service.Get(storage_key);
 
-      result.then(() => {throw "";}, (storageError) => {
+      result.then(() => {}, (storageError) => {
         expect(storageError).toEqual(expected_result);
       });
     });
