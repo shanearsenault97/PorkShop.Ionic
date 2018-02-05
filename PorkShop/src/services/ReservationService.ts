@@ -13,14 +13,6 @@ export class ReservationService
 
   public async AddReservation(newReservationP: IReservation): Promise<IReservation>
   {
-    try
-    {
-        let save_result = await this.baseGUIDService.SaveGUIDItem(newReservationP, this.m_ReservationCacheKey);
-        return Promise.resolve(save_result);
-    }
-    catch(saveNewReservationError)
-    {
-        return Promise.reject(saveNewReservationError);
-    }
+    return await this.baseGUIDService.SaveGUIDItem(newReservationP, this.m_ReservationCacheKey);
   }
 }

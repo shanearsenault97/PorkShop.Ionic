@@ -4,7 +4,7 @@ export class FakeStorage
   {}
 
   private m_StorageUnavailable: boolean = false;
-  private m_StoredData: string = `{"Data": {"FirstName": "Clark", "LastName": "Kent", "Alias": "Superman"}}`;
+  private m_StoredData: string = `{"FirstName": "Clark", "LastName": "Kent", "Alias": "Superman"}`;
 
   public ready(): Promise<void>
   {

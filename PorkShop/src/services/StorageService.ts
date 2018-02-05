@@ -17,29 +17,22 @@ export class StorageService
 
   public async Get(keyP: CacheKeys): Promise<any>
   {
-    try
+    await this.m_StorageReady;
+    const storage_result = await this.m_Storage.get(keyP.toString());
+    let decoded_result = null;
+
+    if(storage_result)
     {
-      await this.m_StorageReady;
-      let cache_result = await this.m_Storage.get(keyP.toString());
-      return Promise.resolve(JSON.parse(cache_result.Data));
+      decoded_result = JSON.parse(storage_result);
     }
-    catch (getFromCacheError)
-    {
-      return Promise.reject(getFromCacheError);
-    }
+
+    return decoded_result;
   }
 
   public async Save(keyP: CacheKeys, dataP: any): Promise<any>
   {
-    try
-    {
-      await this.m_StorageReady;
-      await this.m_Storage.set(keyP.toString(), JSON.stringify(dataP));
-      return dataP;
-    }
-    catch (cacheSetError)
-    {
-      return Promise.reject(cacheSetError);
-    }
+    await this.m_StorageReady;
+    await this.m_Storage.set(keyP.toString(), JSON.stringify(dataP));
+    return dataP;
   }
 }

@@ -4,7 +4,7 @@ export class FakeStorageService
   constructor()
   {}
 
-  private m_Data: string = "";
+  private m_Data = null;
   private m_StorageServiceUnavailable;
 
   public async Get(keyP: CacheKeys): Promise<any>
@@ -13,14 +13,22 @@ export class FakeStorageService
     {
       return Promise.reject(null);
     }
-    return Promise.resolve(JSON.parse(this.m_Data));
+    return Promise.resolve(this.m_Data);
   }
 
+  public async Save(keyP: CacheKeys, dataP: any): Promise<any>
+  {
+    if(this.m_StorageServiceUnavailable)
+    {
+      return Promise.reject(null);
+    }
+    return Promise.resolve(dataP);
+  }
   /*Helper methods not in original class*/
 
   public SetStorageToHaveValue()
   {
-    this.m_Data = "{FirstName: 'Clark', LastName: 'Kent', Alias: 'Superman'}";
+    this.m_Data = {FirstName: 'Clark', LastName: 'Kent', Alias: 'Superman'};
   }
 
   public SetStorageServiceAsUnavailable()

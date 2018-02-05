@@ -99,7 +99,7 @@ describe('StorageService', () => {
       fake_storage.SetStorageToUnavailable();
       const result = storage_service.Save(storage_key, cache_data);
 
-      result.then(() => {throw "";}, (storageError) => {
+      result.then(() => {}, (storageError) => {
         expect(storageError).toEqual(expected_result);
       });
     });

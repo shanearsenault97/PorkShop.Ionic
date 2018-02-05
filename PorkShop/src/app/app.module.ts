@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import {IonicStorageModule} from '@ionic/storage';
 
 import { MyApp } from './app.component';
-import {NavigationService} from "../services/NavigationService";
 import { ReservationService } from '../services/ReservationService';
 import { BaseGUIDService } from '../services/BaseGUIDService';
 import { StorageService } from '../services/StorageService';
@@ -31,7 +30,6 @@ import { UUIDService } from '../services/UUIDService';
   providers: [
     BaseGUIDService,
     StorageService,
-    NavigationService,
     ReservationService,
     SplashScreen,
     StatusBar,

@@ -13,60 +13,31 @@ export class BaseGUIDService
 
   public async GetGUIDItems(cacheKeyP: CacheKeys): Promise<any>
   {
-    try
-    {
-        let cache_result = await this.GetGUIDItemsFromCache(cacheKeyP);
-        if(!cache_result)
-        {
-            cache_result = [];
-        }
-        return Promise.resolve(cache_result);
-    }
-    catch(getCacheItemsError)
-    {
-        return Promise.reject(getCacheItemsError);
-    }
+    return await this.GetGUIDItemsFromCache(cacheKeyP);
   }
 
   public async SaveGUIDItem(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
     newItemP.ID = await this.uuidService.Generate();
-    try
-    {
-        let cache_result = await this.SaveGUIDItemToCache(newItemP, cacheKeyP);
-        return Promise.resolve(cache_result);
-    }
-    catch(saveGuidItemError)
-    {
-        return Promise.reject(saveGuidItemError);
-    }
+    newItemP.DateAdded = new Date().getTime().toString();
+
+    return await this.SaveGUIDItemToCache(newItemP, cacheKeyP);
   }
 
   private async GetGUIDItemsFromCache(cacheKeyP: CacheKeys): Promise<any>
   {
-    try
-    {
-        let cache_result = await this.storageService.Get(cacheKeyP);
-        return Promise.resolve(cache_result.Data);
-    }
-    catch(getItemsFromCacheError)
-    {
-        return Promise.reject(getItemsFromCacheError);
-    }
+    return await this.storageService.Get(cacheKeyP);
   }
 
   private async SaveGUIDItemToCache(newItemP: IItem, cacheKeyP: CacheKeys): Promise<any>
   {
-    try
+    let item_list: IItem[] = await this.GetGUIDItems(cacheKeyP);
+    if(!item_list)
     {
-        let item_list = await this.GetGUIDItems(cacheKeyP);
-        item_list.push(newItemP);
-        await this.storageService.Save(cacheKeyP, item_list);
-        return Promise.resolve(newItemP);
+      item_list = [];
     }
-    catch(getItemsErrorResult)
-    {
-        return Promise.reject(getItemsErrorResult);
-    }
+    item_list.push(newItemP);
+    await this.storageService.Save(cacheKeyP, item_list);
+    return newItemP;
   }
 }
