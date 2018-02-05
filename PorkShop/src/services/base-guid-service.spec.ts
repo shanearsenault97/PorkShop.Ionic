@@ -58,6 +58,18 @@ describe("BaseGUIDService", () => {
 
     });
 
+    it("should throw an exception after calling the getguiditems method", () => {
+      const expected_result = null;
+      const storage_key = CacheKeys.TestKey;
+
+      fake_storage_service.SetStorageServiceAsUnavailable();
+      const result = base_guid_service.GetGUIDItems(storage_key);
+
+      result.then(() => {throw "";}, (storageError) => {
+        expect(storageError).toEqual(expected_result);
+      });
+    });
+
   });
 
 });
