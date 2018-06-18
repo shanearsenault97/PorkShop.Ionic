@@ -1,8 +1,8 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "The Pork Shop",
+  "short_name": "Pork Shop",
   "start_url": "index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [{
     "src": "assets/imgs/logo.png",
     "sizes": "512x512",
