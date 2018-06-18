@@ -1,8 +1,8 @@
-import {ReservationAdd} from "./reservation-add";
+import {ReservationAdd} from "../../../../src/pages/reservation/reservation-add/reservation-add";
 import {FakeReservationService} from "../../../fakes/fake-reservation-service";
 import {TestBed} from "@angular/core/testing";
-import {ReservationService} from "../../../services/ReservationService";
-import {IReservation} from "../../../models/interfaces/IReservation";
+import {ReservationService} from "../../../../src/services/ReservationService";
+import {IReservation} from "../../../../src/models/interfaces/IReservation";
 
 describe("ReservationAdd", () => {
 

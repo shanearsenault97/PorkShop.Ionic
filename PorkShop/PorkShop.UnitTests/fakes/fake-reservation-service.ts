@@ -1,4 +1,4 @@
-import {IReservation} from "../models/interfaces/IReservation";
+import {IReservation} from "../../src/models/interfaces/IReservation";
 export class FakeReservationService
 {
   constructor()

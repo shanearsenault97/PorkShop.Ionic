@@ -1,11 +1,11 @@
 import {TestBed} from "@angular/core/testing";
-import {BaseGUIDService} from "../BaseGUIDService";
-import {FakeStorageService} from "../../fakes/fake-storage-service";
-import {FakeUUIDService} from "../../fakes/fake-uuid-service";
-import {UUIDService} from "../UUIDService";
-import {StorageService} from "../StorageService";
-import {CacheKeys} from "../../models/enums/CacheKeys";
-import {IItem} from "../../models/interfaces/IItem";
+import {BaseGUIDService} from "../../src/services/BaseGUIDService";
+import {FakeStorageService} from "../fakes/fake-storage-service";
+import {FakeUUIDService} from "../fakes/fake-uuid-service";
+import {UUIDService} from "../../src/services/UUIDService";
+import {StorageService} from "../../src/services/StorageService";
+import {CacheKeys} from "../../src/models/enums/CacheKeys";
+import {IItem} from "../../src/models/interfaces/IItem";
 
 describe("BaseGUIDService", () => {
   let base_guid_service: BaseGUIDService;

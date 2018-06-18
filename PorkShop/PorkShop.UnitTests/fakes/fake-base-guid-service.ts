@@ -1,5 +1,5 @@
-import {IItem} from "../models/interfaces/IItem";
-import {CacheKeys} from "../models/enums/CacheKeys";
+import {IItem} from "../../src/models/interfaces/IItem";
+import {CacheKeys} from "../../src/models/enums/CacheKeys";
 export class FakeBaseGuidService
 {
   constructor()

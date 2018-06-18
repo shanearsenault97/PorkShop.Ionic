@@ -1,4 +1,4 @@
-import {CacheKeys} from "../models/enums/CacheKeys";
+import {CacheKeys} from "../../src/models/enums/CacheKeys";
 export class FakeStorageService
 {
   constructor()
